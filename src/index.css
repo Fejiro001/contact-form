@@ -27,7 +27,7 @@
 
 @layer components {
   .body-style {
-    @apply font-body flex flex-col justify-center items-center min-h-screen bg-primary-light-green py-8 px-4 md:pt-32;
+    @apply font-body flex flex-col justify-center items-center min-h-screen bg-primary-light-green py-8 px-4 md:py-32;
   }
 
   .form-style {
@@ -35,7 +35,7 @@
   }
 
   .input-style {
-    @apply border rounded-lg border-neutral-medium-grey p-3 focus:outline-1 focus:outline-primary-medium-green;
+    @apply border rounded-lg border-neutral-medium-grey p-3 focus:outline-1 focus:outline-primary-medium-green hover:cursor-pointer hover:ring-primary-medium-green hover:ring-1 ;
   }
 
   .inline-style {
@@ -43,7 +43,18 @@
   }
 }
 
-.Toastify__toast-theme--colored.Toastify__toast--default {
-  @apply bg-neutral-darker-grey text-neutral-white;
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  @apply bg-neutral-darker-grey text-neutral-white rounded-xl w-fit p-5;
 }
 
+.Toastify__toast-body {
+  @apply block;
+}
+
+.Toastify__toast-container--top-center {
+  @apply w-fit;
+}
+
+.Toastify__toast-icon {
+  @apply hidden;
+}

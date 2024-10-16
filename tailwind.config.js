@@ -12,6 +12,7 @@ export default {
       colors: {
         'primary-light-green': 'hsl(148, 38%, 91%)',
         'primary-medium-green': 'hsl(169, 82%, 27%)',
+        'hover-color': 'hsl(171, 83%, 14%)',
         'primary-red': 'hsl(0, 66%, 54%)',
 
         'neutral-white': 'hsl(0, 0%, 100%)',

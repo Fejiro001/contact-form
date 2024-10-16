@@ -4,37 +4,43 @@ import FormElementsWrapper from "./components/FormElementsWrapper";
 import Input from "./components/Input";
 import Label from "./components/Label";
 import RadioButton from "./components/RadioButton";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import 'react-toastify/ReactToastify.css';
 import image from "./assets/images/icon-success-check.svg";
 
 function App() {
+  // Use React Hook Form
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
+  // Display a Toast message after successful form submission
   const onSubmit = (data) => {
-    toast(
-      <div className=" font-body">
-        <div><img src={image} className="inline" /><p className="inline font-bold ps-4">Message Sent!</p></div>
-        <p>Thanks for completing the form. We&apos;ll be in touch soon!</p>
+    toast.success(
+      <div className="w-fit font-body space-y-2">
+        <div className="flex place-items-center"><img src={image} className="inline" /><p className="inline font-bold ps-3 text-lg">Message Sent!</p></div>
+        <p className="text-wrap md:text-nowrap">Thanks for completing the form. We&apos;ll be in touch soon!</p>
       </div>,
       {
         position: "top-center",
-        autoClose: false,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
+        closeButton: false,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
         theme: "colored",
-        transition: Bounce
+        transition: Slide
       }
     );
 
     console.log(data);
+
+    reset();
   };
 
   return (
@@ -56,6 +62,7 @@ function App() {
                   id={"first_name"}
                   name={"first_name"}
                   type={"text"}
+                  error={errors.first_name}
                   {...register("first_name", {
                     required: "This field is required",
                   })}
@@ -75,6 +82,7 @@ function App() {
                   id={"last_name"}
                   name={"last_name"}
                   type={"text"}
+                  error={errors.last_name}
                   {...register("last_name", {
                     required: "This field is required",
                   })}
@@ -95,6 +103,7 @@ function App() {
                 id={"email"}
                 name={"email"}
                 type={"email"}
+                error={errors.email}
                 {...register("email", {
                   required: "This field is required",
                   pattern: {
@@ -151,6 +160,7 @@ function App() {
                 id={"message_body"}
                 name={"message_body"}
                 isInput={false}
+                error={errors.message_body}
                 {...register("message_body", {
                   required: "This field is required",
                 })}
@@ -167,7 +177,7 @@ function App() {
             <FormElementsWrapper>
               <div className="flex place-items-center gap-5 pt-3">
                 <input
-                  className="border h-6 w-6 md:h-5 md:w-5"
+                  className="border h-6 w-6 md:h-5 md:w-5 hover:cursor-pointer"
                   type="checkbox"
                   id="consent"
                   name="consent"
@@ -176,7 +186,7 @@ function App() {
                       "To submit this form, please consent to being contacted",
                   })}
                 />
-                <Label htmlFor="consent">
+                <Label className="hover:cursor-pointer" htmlFor="consent">
                   I consent to being contacted by the team
                 </Label>
               </div>
@@ -191,7 +201,7 @@ function App() {
             {/* Submit Button */}
             <div className="pt-4">
               <button
-                className="w-full bg-primary-medium-green text-neutral-white rounded-md p-4 text-lg"
+                className="w-full bg-primary-medium-green text-neutral-white rounded-md p-4 text-lg hover:bg-hover-color"
                 type="submit"
               >
                 Submit
