@@ -18,7 +18,7 @@ function App() {
   } = useForm();
 
   // Display a Toast message after successful form submission
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     toast.success(
       <div className="w-fit font-body space-y-2">
         <div className="flex place-items-center"><img src={image} className="inline" /><p className="inline font-bold ps-3 text-lg">Message Sent!</p></div>
@@ -37,8 +37,6 @@ function App() {
         transition: Slide
       }
     );
-
-    console.log(data);
 
     reset();
   };
