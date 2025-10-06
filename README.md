@@ -32,11 +32,11 @@ Users should be able to:
 
 ### Screenshot
 
-![](/public/screenshot.png)
+![Contact Form Screenshot](/public/screenshot.png)
 
 ### Links
 
-- Solution URL: [URL]()
+- Solution URL: [URL](https://www.frontendmentor.io/solutions/contact-form-using-react-and-react-hook-form-y5ASBgNlfK)
 - Live Site URL: [URL](https://contact-form-red-eta.vercel.app/)
 
 ## My process
